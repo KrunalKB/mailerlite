@@ -4,7 +4,7 @@
 
 [![Mailerlite](https://www.mailerlite.com/assets/SEO/mailerlite.png)](https://www.mailerlite.com/)
 # Functionality
-This function will add subscriber in mailerlite subscriber lists by using mailerlite API.
+> This function will add subscriber in mailerlite subscriber lists by using mailerlite API.
 
 # Technologies used :
 1. Wordpress
