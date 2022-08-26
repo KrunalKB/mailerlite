@@ -7,7 +7,6 @@ function enqueue_parent_styles() {
     wp_enqueue_style( 'parent-style', get_template_directory_uri().'/style.css' );
     if(is_page('contact-form')){
         /* Enqueue stylesheets */
-        wp_enqueue_style('font-style', get_stylesheet_directory_uri(). '/fonts/icomoon/style.css',array(),'1.0.0');
         wp_enqueue_style('bootstrap-style', get_stylesheet_directory_uri(). '/css/bootstrap.min.css',array(),'1.0.0');
         wp_enqueue_style('main-style', get_stylesheet_directory_uri(). '/css/style.css',array(),'1.0.0');
         wp_enqueue_style('font-api', 'https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap');
@@ -41,7 +40,7 @@ function get_form_data(){
         $curl     = curl_init();
         $group_id = "111496414";
         $mailerlite_api_key = "7962a36307202a52c64a6f8ac843887b";
-        
+
         $post_fields = wp_json_encode([
             'email'  => $email,
             'name'   => $name,
