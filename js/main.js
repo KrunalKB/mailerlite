@@ -35,6 +35,7 @@ $(document).ready(function () {
         success    : function (response) {
           if (response) {
             $("#form-message-success").show();
+            $("#contactForm")[0].reset();
             $(".loader").hide();
             setTimeout(function () {
               location.reload(true);
