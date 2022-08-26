@@ -65,8 +65,10 @@ get_header();
                                 </div>
                                 <div class="row">
                                     <div class="col-12">
-                                        <button type="submit" class="btn btn-primary rounded-0 py-2 px-4">Send Message</button>
-                                        <span class="submitting"></span>
+                                        <button type="submit" class="btn btn-primary rounded-0 py-2 px-4">Send
+                                            Message</button>
+                                        <img src="<?php echo get_stylesheet_directory_uri().'/images/load.gif' ?>"
+                                            class="loader" alt="Loader" height=25 width=25 style="margin-left:10px;">
                                     </div>
                                 </div>
                             </form>

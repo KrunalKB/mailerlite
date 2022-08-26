@@ -79,7 +79,7 @@ label.error {
 #message {
   resize: vertical; }
 
-#form-message-warning, #form-message-success {
+#form-message-warning {
   display: none; }
 
 #form-message-warning {

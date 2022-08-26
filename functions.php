@@ -31,13 +31,52 @@ function enqueue_parent_styles() {
 
 /* Ajax callback for getting form data */
 add_action('wp_ajax_user_hook','get_form_data');
-// add_action('wp_ajax_nopriv_form_submit','get_form_data');
+add_action('wp_ajax_nopriv_user_hook','get_form_data');
 function get_form_data(){
     if (isset($_POST['nonce']) && wp_verify_nonce($_POST['nonce'], 'user-registration-nonce')) {
-        $name    = $_POST['name'];
-        $email   = $_post['email'];
-        $subject = $_POST['subject'];
-        $message = $_POST['message'];
+        $name     = $_POST['name'];
+        $email    = $_POST['email'];
+        $subject  = $_POST['subject'];
+        $message  = $_POST['message'];
+        $curl     = curl_init();
+        $group_id = "111496414";
+        $mailerlite_api_key = "7962a36307202a52c64a6f8ac843887b";
+        
+        $post_fields = wp_json_encode([
+            'email'  => $email,
+            'name'   => $name,
+            'fields' => [
+                'subject' => $subject,
+                'message' => $message
+            ]
+        ]);
+        curl_setopt_array($curl, [
+            CURLOPT_URL            => "https://api.mailerlite.com/api/v2/groups/".$group_id."/subscribers",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING       => "",
+            CURLOPT_MAXREDIRS      => 10,
+            CURLOPT_TIMEOUT        => 30,
+            CURLOPT_HTTP_VERSION   => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST  => "POST",
+            CURLOPT_POSTFIELDS     => $post_fields,
+            CURLOPT_HTTPHEADER     => [
+              "Accept: application/json",
+              "Content-Type: application/json",
+              "X-MailerLite-ApiKey:".$mailerlite_api_key,
+            ],
+        ]);
+          
+        $response = curl_exec($curl);
+        $err      = curl_error($curl);
+          
+        curl_close($curl);
+          
+        if ($err) {
+            echo "cURL Error #:" . $err;
+        } else {  
+            echo $response;
+        }
+
     }
 }
 
