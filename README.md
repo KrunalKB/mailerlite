@@ -9,7 +9,7 @@
 # Technologies used :
 1. Wordpress
 2. Ajax
-3. jquery
+3. jQuery
 4. Bootstrap
 
 # Find about API Reference in below link:
