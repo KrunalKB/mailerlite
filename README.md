@@ -10,6 +10,7 @@
 1. Wordpress
 2. Ajax
 3. jquery
+4. Bootstrap
 
 # Find about API Reference in below link:
 >https://developers.mailerlite.com/docs
