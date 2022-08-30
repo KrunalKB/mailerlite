@@ -38,8 +38,8 @@ function get_form_data(){
         $subject  = $_POST['subject'];
         $message  = $_POST['message'];
         $curl     = curl_init();
-        $group_id = "111496414";
-        $mailerlite_api_key = "7962a36307202a52c64a6f8ac843887b";
+        $group_id = "GROUP_ID";
+        $mailerlite_api_key = "API_KEY";
 
         $post_fields = wp_json_encode([
             'email'  => $email,
